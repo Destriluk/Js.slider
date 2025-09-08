@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: flex;
+    }
+    .slider{
+        width: 500px;
+        height: 500px;
+        overflow: hidden;
+    }
+    .slider img{
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    .slider img.active{
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="slider">
+        <img class="active" src="img1.jpg" alt="">
+        <img src="img2.jpg" alt="">
+        <img src="img3.jpg" alt="">
+    </div>
+    <script>
+        const imgs = document.querySelectorAll('.slider img')
+        let index = 0
+        setInterval(() => {
+           imgs[index].classList.remove('active')
+           index = (index + 1) % imgs.length
+           imgs[index].classList.add('active')
+        }, 3000);
+    </script> 
+</body>
+</html>
